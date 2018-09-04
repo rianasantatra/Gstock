@@ -4,7 +4,7 @@
 		<div class="page-header">
 			<h3><span class="glyphicon glyphicon-user"></span> Ajouter utilisateur</h3>
 		</div>
-		<form class="form-signin" action="<?php echo site_url('paoma/add_user'); ?>" method="POST">
+		<form action="<?php echo site_url('paoma/add_user'); ?>" method="POST">
 			
 			<div class="form-group">
 				<label for="username">Identifiant</label>

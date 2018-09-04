@@ -17,25 +17,25 @@
 							<a href="" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed"> <h4> Administration
 							<br>
 						</li>
-						<li>
-							<a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-shopping-cart
+						<li class="dropdown">
+							<a data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-shopping-cart
 							"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produits <span class="caret pull-right"></span> </a>
 							<div class="collapse" id="toggleDemo" style="height: 0px;">
 								<ul class="nav nav-list">
 									<li>
-										<a href="#">Nouveau</a>
+										<a href="<?php echo site_url('paoma/new_produit'); ?>">Nouveau</a>
 									</li>
 									<li>
 										<a href="#">Sortie</a>
 									</li>
 									<li>
-										<a href="#">Liste</a>
+										<a href="<?php echo site_url('paoma/fetch_produit'); ?>">Liste</a>
 									</li>
 								</ul>
 							</div>
 						</li>
-						<li>
-							<a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-inbox"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Articles <span class="caret pull-right"></span> </a>
+						<li class="dropdown">
+							<a data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-inbox"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Articles <span class="caret pull-right"></span> </a>
 							<div class="collapse" id="toggleDemo2" style="height: 0px;">
 								<ul class="nav nav-list">
 									<li>
@@ -50,8 +50,8 @@
 								</ul>
 							</div>
 						</li>
-						<li>
-							<a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utilisateurs <span class="caret pull-right"></span> </a>
+						<li class="dropdown">
+							<a data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed"> <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utilisateurs <span class="caret pull-right"></span> </a>
 							<div class="collapse" id="toggleDemo3" style="height: 0px;">
 								<ul class="nav nav-list">
 									<li>

@@ -3,7 +3,7 @@
 		<div class="container">
 
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-th-list"></span> Navigation</h3>
+				<h3><span class="glyphicon glyphicon-home"></span> Tableau de Bord </h3>
 			</div>
 
 		</div>

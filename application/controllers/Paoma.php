@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Paoma extends CI_Controller {
 
@@ -23,9 +23,8 @@ class Paoma extends CI_Controller {
 	/*
 	 * Index
 	 */
-
 	public function index() {
-		$this -> render('index');
+		$this -> load -> view('index');
 	}
 
 	/*
@@ -34,7 +33,7 @@ class Paoma extends CI_Controller {
 	public function login() {
 		$username = $this -> input -> post('username');
 		$password = $this -> input -> post('password');
-		$check = $this -> paoma_model -> get_user($username, $password);
+		$check = $this -> paoma_model -> check_user($username, $password);
 
 		if ($check) {
 			$this -> session -> set_userdata('logged_in', true);
@@ -45,9 +44,9 @@ class Paoma extends CI_Controller {
 			redirect('paoma/index', 'refresh');
 		}
 	}
-	
-	public function admin(){
-		$this->render('admin');
+
+	public function admin() {
+		$this -> render('admin');
 	}
 
 	public function logout() {
@@ -64,7 +63,6 @@ class Paoma extends CI_Controller {
 	}
 
 	private function add_user_remap() {
-
 		if ($this -> input -> post('ajouter')) {
 
 			$username = $this -> input -> post('username');
@@ -116,5 +114,42 @@ class Paoma extends CI_Controller {
 	/*
 	 * Products form
 	 */
+	public function new_produit() {
+		$this -> render('add_produit');
+	}
+
+	public function add_produit_remap() {
+		if ($this -> input -> post('ajouter')) {
+
+			$nom = $this -> input -> post('nom');
+			$ref = $this -> input -> post('ref');
+			$description = $this -> input -> post('description');
+			$qte = $this -> input -> post('qte');
+			$type = $this -> input -> post('type');
+			$date_achat = $this -> input -> post('date_achat');
+			$zone = $this -> input -> post('zone');
+
+			return $result = $this -> paoma_model -> add_produits($nom, $ref, $description, $qte, $type, $date_achat, $zone);
+		}
+	}
+
+	public function add_produit() {
+		$this -> add_produit_remap();
+		redirect('paoma/new_produit', 'refresh');
+	}
+
+	public function fetch_produit() {
+		$config = array();
+		$config["base_url"] = site_url('paoma/fetch_produit');
+		$config["total_rows"] = $this -> paoma_model -> count_produits();
+		$config["per_page"] = 7;
+		$config["uri_segment"] = 3;
+		$this -> pagination -> initialize($config);
+		$page = ($this -> uri -> segment(3)) ? $this -> uri -> segment(3) : 0;
+		
+		$fetch['data'] = $this -> paoma_model -> fetch_produits($config["per_page"], $page);
+		$fetch["links"] = $this -> pagination -> create_links();
+		$this -> render('produits', $fetch);
+	}
 
 }
