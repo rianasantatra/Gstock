@@ -7,6 +7,7 @@ class Paoma_model extends CI_Model {
     protected $produits = 'produits';
     protected $articles = 'articles';
     protected $magasins = 'magasins';
+    protected $demandes = 'demandes';
     protected $fournisseurs = 'fournisseurs';
 
     public function check_user($username, $password) {
@@ -20,11 +21,18 @@ class Paoma_model extends CI_Model {
     }
 
     public function fetch_user() {
-        return $this->db->select('*')->from($this->users)->get()->result();
+        return $this->db->select('*')
+                        ->from($this->users)
+                        ->get()
+                        ->result();
     }
 
     public function fetch_user_id($id) {
-        return $this->db->select('*')->from($this->users)->where('id', $id)->get()->result();
+        return $this->db->select('*')
+                        ->from($this->users)
+                        ->where('id', $id)
+                        ->get()
+                        ->result();
     }
 
     public function update_user($id, $username, $password, $fonction) {
@@ -78,7 +86,11 @@ class Paoma_model extends CI_Model {
     }
 
     public function get_produit(){
-        return $this->db->select('id,p_nom')->from($this->produits)->order_by('id')->get()->result();
+        return $this->db->select('id,p_nom')
+                        ->from($this->produits)
+                        ->order_by('id')
+                        ->get()
+                        ->result();
     }
 
     /*
@@ -126,11 +138,19 @@ class Paoma_model extends CI_Model {
     }
     
     public function fetch_fournisseur() {
-        return $this->db->select('*')->from($this->fournisseurs)->get()->result();
+        return $this->db->select('*')
+                        ->from($this
+                        ->fournisseurs)
+                        ->get()
+                        ->result();
     }
 
     public function get_fournisseur() {
-        return $this->db->select('id,nom')->from($this->fournisseurs)->order_by('id')->get()->result();
+        return $this->db->select('id,nom')
+                        ->from($this->fournisseurs)
+                        ->order_by('id')
+                        ->get()
+                        ->result();
     }
 
     /*
@@ -147,11 +167,18 @@ class Paoma_model extends CI_Model {
     }
     
     public function fetch_magasin() {
-        return $this->db->select('*')->from($this->magasins)->get()->result();
+        return $this->db->select('*')
+                        ->from($this->magasins)
+                        ->get()
+                        ->result();
     }
 
     public function get_magasin() {
-        return $this->db->select('id,nom')->from($this->magasins)->order_by('id')->get()->result();
+        return $this->db->select('id,nom')
+                        ->from($this->magasins)
+                        ->order_by('id')
+                        ->get()
+                        ->result();
     }
 
     /*
@@ -169,11 +196,33 @@ class Paoma_model extends CI_Model {
     }
 
     public function get_client(){
-        return $this->db->select('id,clt_nom')->from($this->clients)->order_by('id')->get()->result();
+        return $this->db->select('id,clt_nom')
+                        ->from($this->clients)
+                        ->order_by('id')
+                        ->get()
+                        ->result();
     }
 
     public function fetch_client() {
-        return $this->db->select('*')->from($this->clients)->get()->result();
+        return $this->db->select('*')
+                        ->from($this->clients)
+                        ->get()
+                        ->result();
     }
 
+    public function add_demande($client, $motif){
+        $data = array(
+            'clients_id' => $client, 
+            'motif' => $motif
+        );
+        $this->db->set($data);
+        $this->db->insert($this->demandes);
+    }
+
+    public function fetch_demande() {
+        return $this->db->select('*')
+                        ->from($this->demandes)
+                        ->get()
+                        ->result();
+    }
 }

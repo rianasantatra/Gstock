@@ -152,7 +152,7 @@ class Paoma extends CI_Controller {
         if ($this->input->post('ajouter')) {
 
             $code = $this->input->post('art_code');
-            $nom = $this->input->post('art-_nom');
+            $nom = $this->input->post('art_nom');
             $description = $this->input->post('art_description');
             $reference = $this->input->post('produits_id');
             $client = $this->input->post('clients_id');
@@ -168,7 +168,7 @@ class Paoma extends CI_Controller {
 
     public function fetch_article() {
         $config = array();
-        $config["base_url"] = site_url('paoma/fetch_produit');
+        $config["base_url"] = site_url('paoma/fetch_article');
         $config["total_rows"] = $this->paoma_model->count_articles();
         $config["per_page"] = 7;
         $config["uri_segment"] = 3;
@@ -176,7 +176,7 @@ class Paoma extends CI_Controller {
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $data['data'] = $this->paoma_model->fetch_articles($config["per_page"], $page);
         $data['links'] = $this->pagination->create_links();
-        $this->render('produits', $data);
+        $this->render('articles', $data);
     }
 
     public function new_fournisseur() {
@@ -248,6 +248,36 @@ class Paoma extends CI_Controller {
     public function add_client() {
         $this->add_client_remap();
         redirect('paoma/new_client', 'refresh');
+    }
+
+    public function fetch_client() {
+        $data['data'] = $this->paoma_model->fetch_client();
+        $this->render('clients', $data);
+    }
+
+    public function new_demande(){
+        $data['clients'] = $this->paoma_model->get_client();
+        $this->render('add_demande',$data);
+    }
+
+    private function add_demande_remap() {
+        if ($this->input->post('ajouter')) {
+
+            $client = $this->input->post('clients_id');
+            $motif = $this->input->post('motif');
+
+            return $this->paoma_model->add_demande($client, $motif);
+        }
+    }
+
+    public function add_demande() {
+        $this->add_demande_remap();
+        redirect('paoma/new_demande', 'refresh');
+    }
+
+    public function fetch_demande() {
+        $data['data'] = $this->paoma_model->fetch_demande();
+        $this->render('demandes', $data);
     }
 
 }

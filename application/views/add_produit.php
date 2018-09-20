@@ -59,7 +59,6 @@
 							echo '<option value="' . $row -> id . '">' . $row -> nom . '</option>';
 						}?>
 					</select>
-					<!--<?php echo form_dropdown('fournisseurs_id',$fournisseurs,'Fournisseurs','class="form-control"'); ?>-->
 				</div>
 			</div>
 

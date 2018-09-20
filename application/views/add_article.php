@@ -30,15 +30,14 @@
 
 
 					</select>
-					<!--<?php echo form_dropdown('fournisseurs_id',$fournisseurs,'Fournisseurs','class="form-control"'); ?>-->
 				</div>
 				<div class="col-md-6 form-group">
 					<label for="">Clients *</label>
 					<select class="form-control" name="clients_id">
 					<option value=""></option>
 					<?php foreach ($clients as $clt) {
-						echo '<option value="' . $clt -> id . '">' . $clt -> nom . '</option>';
-					}?>+
+						echo '<option value="' . $clt -> id . '">' . $clt -> clt_nom . '</option>';
+					}?>
 					</select>
 				</div>
 			</div>

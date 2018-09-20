@@ -22,9 +22,6 @@
 										<a href="<?php echo site_url('paoma/new_produit'); ?>">Nouveau</a>
 									</li>
 									<li>
-										<a href="<?php echo site_url('paoma/send_produit'); ?>">Sortie</a>
-									</li>
-									<li>
 										<a href="<?php echo site_url('paoma/fetch_produit'); ?>">Liste</a>
 									</li>
 								</ul>
@@ -39,10 +36,7 @@
 										<a href="<?php echo site_url('paoma/new_article');?>">Ajouter</a>
 									</li>
 									<li>
-										<a href="#">Sortie</a>
-									</li>
-									<li>
-										<a href="#">Liste</a>
+										<a href="<?php echo site_url('paoma/fetch_article');?>">Liste</a>
 									</li>
 								</ul>
 							</div>
