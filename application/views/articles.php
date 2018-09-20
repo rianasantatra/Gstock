@@ -3,15 +3,19 @@
 		<div class="page-header">
 		<h3> Listes articles </h3>
 		</div>
-		<table class="table table-responsive table-hover">
+		<table class="table table-responsive">
 			<thead>
 				<tr>
 					<th>#</th><th>code</th><th>Nom</th><th>Déscription</th><th>Référence</th><th>Client</th>
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($data as $value) { ?>
-				<tr>
+			<?php foreach ($data as $value) { 
+				$style = '';
+				if ($value -> clients_id > 0 ) {
+					$style = 'class="alert alert-warning"';
+				} ?>
+				<tr <?php echo $style ?>>
 					<td><?php echo $value -> id; ?></td>
 					<td><?php echo $value -> art_code; ?></td>
 					<td><?php echo $value -> art_nom; ?></td>
