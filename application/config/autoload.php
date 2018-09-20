@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','html','form','date','assets');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('grocery_crud');
 
 /*
 | -------------------------------------------------------------------
