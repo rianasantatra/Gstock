@@ -4,10 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Paoma extends CI_Controller {
 
+    /**
+     * contructor
+     */
     public function __construct() {
         parent::__construct();
     }
 
+    /**
+     * render
+     */
     private function render($view, $data = array()) {
         $this->load->view('app/header');
         $this->load->view('app/sidenav');
@@ -15,10 +21,16 @@ class Paoma extends CI_Controller {
         $this->load->view('app/footer');
     }
 
+    /**
+     * index
+     */
     public function index() {
         $this->load->view('index');
     }
-
+    
+    /**
+     * login
+     */
     public function login() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -34,16 +46,25 @@ class Paoma extends CI_Controller {
         }
     }
 
+    /**
+     * redirection after login
+     */
     public function admin() {
         $this->render('admin');
     }
 
+    /**
+     * logout
+     */
     public function logout() {
         $this->session->unset_userdata('logged_in');
         $this->session->sess_destroy();
         redirect('paoma/index', 'refresh');
     }
 
+    /**
+     * user method
+     */
     public function new_user() {
         $this->render('add_user');
     }
@@ -97,6 +118,9 @@ class Paoma extends CI_Controller {
         redirect('paoma/fetch_user', 'refresh');
     }
 
+    /**
+     * product method
+     */
     public function new_produit() {
         $data = array();
         $data['fournisseurs'] = $this->paoma_model->get_fournisseur();
@@ -141,6 +165,9 @@ class Paoma extends CI_Controller {
         $this->render('produits', $data);
     }
 
+    /**
+     * article method
+     */
     public function new_article(){
         $data['produits'] = $this->paoma_model->get_produit();
         $data['clients'] = $this->paoma_model->get_client();
@@ -179,6 +206,9 @@ class Paoma extends CI_Controller {
         $this->render('articles', $data);
     }
 
+    /**
+     * fournisseur method
+     */
     public function new_fournisseur() {
         $this->render('add_fournisseur');
     }
@@ -204,6 +234,9 @@ class Paoma extends CI_Controller {
         $this->render('fournisseurs', $data);
     }
 
+    /**
+     * emplacement method
+     */
     public function new_magasin() {
         $this->render('add_magasin');
     }
@@ -229,6 +262,9 @@ class Paoma extends CI_Controller {
         $this->render('magasins', $data);
     }
 
+    /**
+     * client method
+     */
     public function new_client(){
         $this->render('add_client');
     }
@@ -255,6 +291,9 @@ class Paoma extends CI_Controller {
         $this->render('clients', $data);
     }
 
+    /**
+     * demande method
+     */
     public function new_demande(){
         $data['clients'] = $this->paoma_model->get_client();
         $this->render('add_demande',$data);
@@ -281,3 +320,6 @@ class Paoma extends CI_Controller {
     }
 
 }
+/**
+ * end of Controller paoma.php
+ */
