@@ -154,6 +154,10 @@ class Paoma_model extends CI_Model {
         return false;
     }
 
+    public function fetch_articles_by_clientsID($clients_id) {
+        return $this->select('*') ->from($this->articles) ->where('clients_id', $clients_id) ->get() ->result();
+    }
+
     /**
      * query fournisseur add
     */

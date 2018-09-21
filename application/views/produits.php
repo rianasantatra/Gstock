@@ -6,7 +6,18 @@
 		<table class="table table-responsive table-hover">
 			<thead>
 				<tr>
-					<th>#</th><th>code</th><th>Nom</th><th>Référence</th><th>Déscription</th><th>Quantité</th><th>Prix</th><th>Date achat</th><th>Entrée Stock</th><th>Zone</th><th>Fournisseurs</th><!--<th>Action</th>-->
+					<th>#</th>
+					<th>code</th>
+					<th>Nom</th>
+					<th>Référence</th>
+					<th>Déscription</th>
+					<th>Quantité</th>
+					<th>Prix</th>
+					<th>Date achat</th>
+					<th>Entrée Stock</th>
+					<th>Emplacements</th>
+					<th>Fournisseurs</th>
+					<!--<th>Action</th>-->
 				</tr>
 			</thead>
 			<tbody>
@@ -23,11 +34,6 @@
 					<td><?php echo $value -> p_date_instock; ?></td>
 					<td><?php echo $value -> magasins_id; ?></td>
 					<td><?php echo $value -> fournisseurs_id; ?></td>
-					
-					<!--<td>
-						<a href="<?php echo site_url('paoma/updates/' . $value -> id); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a> 
-						<a href="<?php echo site_url('paoma/delete_produit/' . $value -> id); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>-->
 				</tr>
 			<?php } ?>
 			</tbody>
