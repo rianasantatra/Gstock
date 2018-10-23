@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Gestion Stock</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gestion de stock</title>
+	<link rel="stylesheet" href="<?php echo site_url();?>assets/css/app.css">
+	<link rel="stylesheet" href="<?php echo site_url();?>assets/css/css.css">
+</head>
+<body id="login">
 
-		<link rel="stylesheet" href="<?php echo css_url('app'); ?>">
-		<link rel="stylesheet" href="<?php echo css_url('css'); ?>">
-
-	</head>
-
-	<body>
-	<div class="container">
-	<div class="col-md-4 col-md-offset-4">
-		<form action="<?php echo site_url('paoma/login')?>" method="post">
-			<h2>Login</h2>
-			<hr />
-			<?php if ($this->session->flashdata()) {
-			?>
-			<div class="alert alert-warning">
-				<?= $this -> session -> flashdata('msg'); ?>
-			</div>
-			<?php } ?>
-			<div class="form-group">
-				<label for="identifiant">Identifiant</label>
-				<input type="text" class="form-control" name="username"  id="username" required>
-			</div>
-			<div class="form-group">
-				<label for="pwd">Mot de passe</label>
-				<input type="password" class="form-control" name="password"  id="password" required>
-			</div>
-			<button type="submit" class="btn btn-primary">
-				Login
-			</button>
-		</form>
-	</div>
-	<script src="<?php echo js_url('jquery'); ?>"></script>
-	<script src="<?php echo js_url('app'); ?>"></script>
-	</body>
-</html>
-
+<div class="container">
+	<?php echo $this->session->flashdata('msg');?>
+	<form class="form-signin" action="<?php echo site_url('users/login'); ?>" method="post">
+        <label class="sr-only">Identifint</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Identifiant" required>
+        <label class="sr-only">Mot de passe</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
 </div>
+
+</body>
+</html>
