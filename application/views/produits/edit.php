@@ -23,76 +23,75 @@
                 <div class="panel-body">
                     <form action="<?php echo site_url('produits/edit_POST'); ?>" method="POST">
                         <div class="row">
-                        	<input class="form-control" name="id" type="hidden" value="<?php echo $data[0]->id;?>">
-                            <div class="col-md-4 form-group">
+                        	<input class="form-control" name="id" type="hidden" value="<?php echo $data[0]->id; ?>">
+                            <div class="col-md-6">
+                                <div class="col-md-6 form-group">
                                 <label for="">
                                     Code
                                 </label>
-                                <input class="form-control" name="p_code" type="text" value="<?php echo $data[0]->p_code;?>">
+                                <input class="form-control" name="p_code" type="text" value="<?php echo $data[0]->p_code; ?>">
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Nom
                                 </label>
-                                <input class="form-control" name="p_nom" type="text" value="<?php echo $data[0]->p_nom;?>">
+                                <input class="form-control" name="p_nom" type="text" value="<?php echo $data[0]->p_nom; ?>">
                             </div>
-                            <div class="col-md-4 form-group">
-                                <label for="">
-                                    Déscription
-                                </label>
-                                <?php echo $this->ckeditor->editor("p_description");?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Nombre
                                 </label>
-                                <input class="form-control" name="p_qte" type="text" value="<?php echo $data[0]->p_qte;?>">
+                                <input class="form-control" name="p_qte" type="text" value="<?php echo $data[0]->p_qte; ?>">
                             </div>
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Prix Unitaire (Ar)
                                 </label>
-                                <input class="form-control" name="p_pu" type="text" value="<?php echo $data[0]->p_pu;?>">
+                                <input class="form-control" name="p_pu" type="text" value="<?php echo $data[0]->p_pu; ?>">
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Date Achat
                                 </label>
-                                <input class="form-control" name="p_date_achat" type="date" value="<?php echo $data[0]->p_date_achat;?>">
+                                <input class="form-control" name="p_date_achat" type="date" value="<?php echo $data[0]->p_date_achat; ?>">
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Entrée en stock
                                 </label>
-                                <input class="form-control" name="p_date_instock" type="date" value="<?php echo $data[0]->p_date_instock;?>">
+                                <input class="form-control" name="p_date_instock" type="date" value="<?php echo $data[0]->p_date_instock; ?>">
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>
                                     Emplacement
                                 </label>
                                 <?php
-                                $attributes = 'class = "form-control" id = "magasins"';
-                                echo form_dropdown('magasins_id', $magasins, set_value('magasins'), $attributes);
-                                ?>
+$attributes = 'class = "form-control" id = "magasins"';
+echo form_dropdown('magasins_id', $magasins, set_value('magasins', $data[0]->magasins_id), $attributes);
+?>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>
                                     Fournisseurs
                                 </label>
                                 <?php
-                                $attributes = 'class = "form-control" id = "fournisseurs"';
-                                echo form_dropdown('fournisseurs_id', $fournisseurs, set_value('fournisseurs'), $attributes);
-                                ?>
+$attributes = 'class = "form-control" id = "fournisseurs"';
+echo form_dropdown('fournisseurs_id', $fournisseurs, set_value('fournisseurs', $data[0]->fournisseurs_id), $attributes);
+?>
                             </div>
                         </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">
+                                    Déscription
+                                </label>
+                                <?php echo $this->ckeditor->editor("p_description", $data[0]->p_description); ?>
+                            </div>
+                        </div>
+
                         <button class="btn btn-primary" type="submit">
                             Enregistrer
                         </button>
-                        <a class="btn btn-warning" href="<?php echo site_url('applications/produits');?>">Retour</a>
+                        <a class="btn btn-warning" href="<?php echo site_url('applications/produits'); ?>">Retour</a>
                     </form>
                 </div>
             </div>

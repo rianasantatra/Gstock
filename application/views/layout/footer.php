@@ -8,9 +8,10 @@
 <script>
     $(document).ready( function () {
     $('#table').DataTable({
+        responsive: true,
         paging: false,
-        ordering:  true,
-        "order": [[ 0, "desc" ]]
+        "autoWidth": true,
+        ordering:  true, "order": [[ 0, "desc" ]]
     });
 } );
 </script>

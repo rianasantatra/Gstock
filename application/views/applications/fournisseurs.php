@@ -1,6 +1,8 @@
 <div class="page-header">
     <h3> <?php echo $title; ?> </h3>
 </div>
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ajouter</button>
+
 <table class="table table-responsive" id="table">
     <thead>
         <tr>
@@ -12,19 +14,49 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($fournisseurs as $value) { ?>
+        <?php foreach ($fournisseurs as $value) {?>
             <tr>
                 <td><?php echo $value->id; ?></td>
                 <td><?php echo $value->f_nom; ?></td>
                 <td><?php echo $value->f_contact; ?></td>
                 <td><?php echo $value->f_adresse; ?></td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <a href="<?php echo site_url('fournisseurs/edit/'.$value->id)?>" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="<?php echo site_url('fournisseurs/delete/'.$value->id);?>" class="btn btn-danger" onclick="return confirm('Confirmer')"><span class="glyphicon glyphicon-trash"></span></a>
-                    </div>
+                    <a href="<?php echo site_url('fournisseurs/edit/' . $value->id) ?>"><span class="glyphicon glyphicon-pencil"></span></a> | <a href="<?php echo site_url('fournisseurs/delete/' . $value->id); ?>" onclick="return confirm('Confirmer')"><span class="glyphicon glyphicon-trash"></span></a></div>
                 </td>
             </tr>
-        <?php } ?>
+        <?php }?>
     </tbody>
 </table>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nouveau Fournisseur</h4>
+      </div>
+      <div class="modal-body">
+            <form action="<?php echo site_url('fournisseurs/add'); ?>" method="POST">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>Nom</label>
+                    <input type="text" class="form-control" name="f_nom">
+                </div>
+                <div class="col-md-12 form-group">
+                    <label>Contact</label>
+                    <input type="number" class="form-control" name="f_contact">
+                </div>
+                <div class="col-md-12 form-group">
+                    <label>Adresse</label>
+                    <input type="text" class="form-control" name="f_adresse">
+                </div>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+            </form>
+    </div>
+  </div>
+</div>

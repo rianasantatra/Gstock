@@ -32,35 +32,29 @@
                             <label>
                                 Code
                             </label>
-                            <input type="text" name="art_code" class="form-control">    
+                            <input type="text" name="art_code" class="form-control">
                             </div>
                             <div class="col-md-3 form-group">
                             <label>
                                 Nom
                             </label>
-                            <input type="text" name="art_nom" class="form-control">    
+                            <input type="text" name="art_nom" class="form-control">
                             </div>
-                            <div class="col-md-3 form-group">
-                            <label>
-                                Emplacement
-                            </label>
-                            <input type="text" name="art_emplacement" class="form-control">    
-                            </div>
-                            
+
                             <div class="col-md-3 form-group">
                                 <label>
                                     Reference
                                 </label>
                                 <?php
-                                $attributes = 'class = "form-control" id = "reference"';
-                                echo form_dropdown('produits_id', $produits, set_value('reference'), $attributes);
-                                ?>
+$attributes = 'class = "form-control" id = "reference"';
+echo form_dropdown('produits_id', $produits, set_value('reference'), $attributes);
+?>
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">
                             Enregistrer
                         </button>
-                        <a class="btn btn-warning" href="<?php echo site_url('applications/articles');?>">Retour</a>
+                        <a class="btn btn-warning" href="<?php echo site_url('applications/articles'); ?>">Retour</a>
                     </form>
                 </div>
             </div>

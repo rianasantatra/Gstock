@@ -29,58 +29,43 @@
                 <div class="panel-body">
                     <form action="<?php echo site_url('produits/add_POST'); ?>" method="POST">
                         <div class="row">
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Code
                                 </label>
                                 <input class="form-control" name="p_code" type="text">
-                                </input>
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Nom
                                 </label>
                                 <input class="form-control" name="p_nom" type="text">
-                                </input>
                             </div>
-                            <div class="col-md-4 form-group">
-                                <label for="">
-                                    Déscription
-                                </label>
-                                <?php echo $this->ckeditor->editor("p_description"); ?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Nombre
                                 </label>
                                 <input class="form-control" name="p_qte" type="text">
-                                </input>
                             </div>
-                            <div class="col-md-2 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Prix Unitaire (Ar)
                                 </label>
                                 <input class="form-control" name="p_pu" type="text">
-                                </input>
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Date Achat
                                 </label>
                                 <input class="form-control" name="p_date_achat" type="date">
-                                </input>
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-6 form-group">
                                 <label for="">
                                     Entrée en stock
                                 </label>
                                 <input class="form-control" name="p_date_instock" type="date">
-                                </input>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>
                                     Emplacement :
@@ -89,9 +74,9 @@
                                     Nouveau
                                 </a>
                                 <?php
-                                $attributes = 'class = "form-control" id = "magasins"';
-                                echo form_dropdown('magasins_id', $magasins, set_value('magasins'), $attributes);
-                                ?>
+$attributes = 'class = "form-control" id = "magasins"';
+echo form_dropdown('magasins_id', $magasins, set_value('magasins'), $attributes);
+?>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>
@@ -101,9 +86,16 @@
                                     Nouveau
                                 </a>
                                 <?php
-                                $attributes = 'class = "form-control" id = "fournisseurs"';
-                                echo form_dropdown('fournisseurs_id', $fournisseurs, set_value('fournisseurs'), $attributes);
-                                ?>
+$attributes = 'class = "form-control" id = "fournisseurs"';
+echo form_dropdown('fournisseurs_id', $fournisseurs, set_value('fournisseurs'), $attributes);
+?>
+                            </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">
+                                    Déscription
+                                </label>
+                                <?php echo $this->ckeditor->editor("p_description"); ?>
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">
